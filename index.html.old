@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Sistema de Apoio ao TEA</title>
+</head>
+
+<body>
+     <!-- Cabeçalho de informações do sistema -->
+    <header>
+        <div class="title">
+            <h1>Cadastro e Busca de Assistentes Terapeuticos</h1>
+        </div>
+        <!-- <div class="banner">
+            <img src="images/retrato-de-uma-crianca-autista-num-mundo-de-fantasia_23-2151354150.jpg"
+                alt="y">
+        </div> -->
+        <div class="banner">
+            <div class="image-div">
+              <img src="images/retrato-de-uma-crianca-autista-num-mundo-de-fantasia_23-2151354150.jpg" alt="Image 1">
+            </div>
+            <div class="image-div">
+              <img src="images/retrato-de-uma-crianca-autista-num-mundo-de-fantasia_23-2151354152.jpg" alt="Image 2">
+            </div>
+            <div class="image-div">
+              <img src="images/retrato-de-uma-crianca-autista-num-mundo-de-fantasia_23-2151354160.jpg" alt="Image 3">
+            </div>
+          </div>
+    </header>
+
+     <!-- Opções para adicionar um novo item -->
+    <section class="newAssistenteTerapeutico">
+        <h1>Cadastrar novo Terapeuta</h1>
+        <input type="text" id="newNome" placeholder="Nome:">
+        <input type="text" id="newTelefone" placeholder="Telefone:">
+        <input type="text" id="newCep" placeholder="CEP:" oninput="getAddressByCEP()">
+        <input type="text" readonly id="newRua" placeholder="Rua:">
+        <input type="text" id="newNumero" placeholder="Número:">
+        <input type="text" id="newComplemento" placeholder="Complemento:">
+        <input type="text" readonly id="newBairro" placeholder="Bairro:">
+        <input type="text" readonly id="newCidade" placeholder="Cidade:">
+        <input type="text" readonly id="newEstado" placeholder="Estado:">
+        <button onclick="newAssistenteTerapeutico()" class="addBtn">Adicionar</button>
+    </section>
+
+    <!-- Tabela com items existentes -->
+    <section class="AssistentesTerapeuticos">
+        <table id="myTable">
+            <tr>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Telefone</th>
+                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
+            </tr>
+        </table>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
+
+
