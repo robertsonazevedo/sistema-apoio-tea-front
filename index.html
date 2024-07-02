@@ -26,20 +26,26 @@
                 </div>
             </div>
         </header>
+        <div id ="busca" class="busca-terapeuta">
+            <h1>Pesquisar Terapeuta Por Estado:</h1>
+            <input type="text" id="buscaEstado" placeholder="UF:">
+            <button id="buscarBtn" onclick="getListByEstado()" class="addBtn">Buscar</button>
+
+        </div>
         <section class="AssistentesTerapeuticos">
             <table id="myTable">
-                <tr>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                    <th>CEP</th>
-                    <th>Rua</th>
-                    <th>Número</th>
-                    <th>Complemento</th>
-                    <th>Bairro</th>
-                    <th>Cidade</th>
-                    <th>Estado</th>
-                    <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
-                </tr>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>CEP</th>
+                        <th>Rua</th>
+                        <th>Número</th>
+                        <th>Complemento</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
+                    </tr>
             </table>
         </section>
     </div>

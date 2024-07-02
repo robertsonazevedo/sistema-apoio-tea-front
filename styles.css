@@ -216,4 +216,44 @@ tr:hover {
 .hidden {
     display: none;
   }
-  
+
+
+.busca-terapeuta {
+    margin: 0 auto;
+    border: 1px solid rgb(35, 32, 24);
+    width: 200px;
+    padding: 5px;
+    font-size: 8px;
+    color: #eee;
+    background-color: #0e6170;
+  }
+
+#busca-por-estado {
+    margin: 0 auto;
+    border: 1px solid rgb(35, 32, 24);
+    width: 200px;
+    padding: 5px;
+    font-size: 12px;
+    color: #0c0b0b;
+}
+
+#busca-por-cidade {
+    margin: 0 auto;
+    border: 1px solid rgb(35, 32, 24);
+    width: 200px;
+    padding: 5px;
+    font-size: 12px;
+    color: #eee;
+}
+
+#busca-por-bairro {
+    margin: 0 auto;
+    border: 1px solid rgb(35, 32, 24);
+    width: 200px;
+    padding: 5px;
+    font-size: 12px;
+    color: #eee;
+}
+
+
+

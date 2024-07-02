@@ -1,3 +1,9 @@
+/*
+  --------------------------------------------------------------------------------------
+  Função para obter rua, bairro, cidade e estado, consultando API dos Correios
+  --------------------------------------------------------------------------------------
+*/
+
 function getAddressByCEP() {
   const cepInput = document.getElementById('newCep');
   const cep = cepInput.value.replace(/\D/g, ''); // Remove non-digit characters
@@ -48,13 +54,50 @@ const getList = async () => {
         console.error('Error:', error);
       });
   }
+
+
+  /*
+  --------------------------------------------------------------------------------------
+  Função para obter a lista existente do servidor via requisição GET por Estado do Terapeuta
+  --------------------------------------------------------------------------------------
+*/
+const getListByEstado = async () => {
+  // clearTable()
+  const terapeuta_estado = document.getElementById('buscaEstado').value.toUpperCase();
   
+  if (isValidUF(terapeuta_estado))
+    // Checa se UF é válida
+    console.log('Estado válido');
+  else {
+    alert('Estado inválido');
+    return;
+  }
+
+
+  let url = 'http://127.0.0.1:5000/assistentes_terapeuticos_estado?estado=' + terapeuta_estado;
+  console.log(url)
+
+  fetch(url, {
+    method: 'get',
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      data.assistentes_terapeuticos.forEach(assistente_terapeutico => insertListByEstado(assistente_terapeutico.nome, assistente_terapeutico.telefone, assistente_terapeutico.cep, assistente_terapeutico.rua, assistente_terapeutico.numero, assistente_terapeutico.complemento, assistente_terapeutico.bairro, assistente_terapeutico.cidade, assistente_terapeutico.estado))
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+  
+
+
   /*
     --------------------------------------------------------------------------------------
     Chamada da função para carregamento inicial dos dados
     --------------------------------------------------------------------------------------
   */
-  getList()
+
+  // getList()
   
   
   /*
@@ -199,9 +242,29 @@ const getList = async () => {
   }
 
 
+  const insertListByEstado = (nome, telefone, cep, rua, numero, complemento, bairro, cidade, estado) => {
+    var terapeuta_estado = [nome, telefone, cep, rua, numero, complemento, bairro, cidade, estado]
+    var table = document.getElementById('myTable');
+    var row = table.insertRow();
 
+    for (var i = 0; i < terapeuta_estado.length; i++) {
+      var cel = row.insertCell(i);
+      cel.textContent = terapeuta_estado[i];
+    }
+    insertButton(row.insertCell(-1))
+    document.getElementById("newNome").value = "";
+    document.getElementById("newTelefone").value = "";
+    document.getElementById("newCep").value = "";
+    document.getElementById("newRua").value = "";
+    document.getElementById("newNumero").value = "";
+    document.getElementById("newComplemento").value = "";
+    document.getElementById("newBairro").value = ""; 
+    document.getElementById("newCidade").value = "";
+    document.getElementById("newEstado").value = "";
 
-
+  
+    removeElement()
+  }
 
 
 
@@ -221,4 +284,51 @@ const getList = async () => {
     screen1.classList.remove('hidden');
   });
   
-  
+
+
+    /*
+    --------------------------------------------------------------------------------------
+    Opção de função para limpar tabela Busca Terapeutas antes de carregar os valores da nova busca
+    --------------------------------------------------------------------------------------
+  */  
+  function clearTable() {
+    const tableBody = document.querySelector('#myTable tbody');
+    // Limpar a tabela existente
+    tableBody.innerHTML = '';
+  }
+
+
+
+
+
+
+  /*
+    --------------------------------------------------------------------------------------
+    Limpar a tabela ao clicar no botão "Buscar" na tela de Busca Terapeutas
+    --------------------------------------------------------------------------------------
+  */
+  const buscarBtn = document.getElementById('buscarBtn');
+  const tableBody = document.querySelector('#myTable tbody');
+
+  buscarBtn.addEventListener('click', () => {
+  const rows = tableBody.querySelectorAll('tr');
+  for (let i = 1; i < rows.length; i++) {
+    rows[i].remove();
+  }
+});
+
+
+
+
+
+  /*
+    --------------------------------------------------------------------------------------
+    Função para checar se a UF é válida de com um Array
+    --------------------------------------------------------------------------------------
+  */
+
+const validUFs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
+
+function isValidUF(uf) {
+  return validUFs.includes(uf.toUpperCase());
+}
