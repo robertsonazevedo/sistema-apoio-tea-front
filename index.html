@@ -24,14 +24,17 @@
                 <div class="image-div">
                 <img src="images/retrato-de-uma-crianca-autista-num-mundo-de-fantasia_23-2151354160.jpg" alt="Image 3">
                 </div>
+                <div class="ufSelectBox">
+                    <select id="mySelectBox" onchange="getListByEstado()"></select>
+                </div>
             </div>
         </header>
-        <div id ="busca" class="busca-terapeuta">
+        <!-- <div id ="busca" class="busca-terapeuta">
             <h1>Pesquisar Terapeuta Por Estado:</h1>
             <input type="text" id="buscaEstado" placeholder="UF:">
             <button id="buscarBtn" onclick="getListByEstado()" class="addBtn">Buscar</button>
 
-        </div>
+        </div> -->
         <section class="AssistentesTerapeuticos">
             <table id="myTable">
                     <tr>
@@ -71,6 +74,7 @@
                     </div>
                 </div>
             </header>
+            <div>
             <section class="newAssistenteTerapeutico">
                 <h1>Cadastrar novo Terapeuta</h1>
                 <input type="text" id="newNome" placeholder="Nome:">
@@ -84,6 +88,7 @@
                 <input type="text" readonly id="newEstado" placeholder="Estado:">
                 <button onclick="newAssistenteTerapeutico()" class="addBtn">Adicionar</button>
             </section>
+        </div>
     </div>
   </div>
   <script src="scripts.js"></script>

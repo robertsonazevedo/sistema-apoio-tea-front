@@ -62,16 +62,15 @@ const getList = async () => {
   --------------------------------------------------------------------------------------
 */
 const getListByEstado = async () => {
-  // clearTable()
-  const terapeuta_estado = document.getElementById('buscaEstado').value.toUpperCase();
+  const terapeuta_estado = document.getElementById('mySelectBox').value.toUpperCase();
   
-  if (isValidUF(terapeuta_estado))
-    // Checa se UF é válida
-    console.log('Estado válido');
-  else {
-    alert('Estado inválido');
-    return;
-  }
+  // if (isValidUF(terapeuta_estado))
+  //   // Checa se UF é válida
+  //   console.log('Estado válido');
+  // else {
+  //   alert('Estado inválido');
+  //   return;
+  // }
 
 
   let url = 'http://127.0.0.1:5000/assistentes_terapeuticos_estado?estado=' + terapeuta_estado;
@@ -88,8 +87,6 @@ const getListByEstado = async () => {
       console.error('Error:', error);
     });
 }
-  
-
 
   /*
     --------------------------------------------------------------------------------------
@@ -291,11 +288,11 @@ const getListByEstado = async () => {
     Opção de função para limpar tabela Busca Terapeutas antes de carregar os valores da nova busca
     --------------------------------------------------------------------------------------
   */  
-  function clearTable() {
-    const tableBody = document.querySelector('#myTable tbody');
-    // Limpar a tabela existente
-    tableBody.innerHTML = '';
-  }
+  // function clearTable() {
+  //   const tableBody = document.querySelector('#myTable tbody');
+  //   // Limpar a tabela existente
+  //   tableBody.innerHTML = '';
+  // }
 
 
 
@@ -304,18 +301,20 @@ const getListByEstado = async () => {
 
   /*
     --------------------------------------------------------------------------------------
-    Limpar a tabela ao clicar no botão "Buscar" na tela de Busca Terapeutas
+    Limpar a tabela ao selecionar uma nova UF no selectbox "mySelectBox".
     --------------------------------------------------------------------------------------
   */
-  const buscarBtn = document.getElementById('buscarBtn');
+  const selectBoxUF = document.getElementById('mySelectBox');
   const tableBody = document.querySelector('#myTable tbody');
 
-  buscarBtn.addEventListener('click', () => {
+  selectBoxUF.addEventListener('change', () => {
   const rows = tableBody.querySelectorAll('tr');
   for (let i = 1; i < rows.length; i++) {
     rows[i].remove();
   }
+
 });
+
 
 
 
@@ -327,8 +326,50 @@ const getListByEstado = async () => {
     --------------------------------------------------------------------------------------
   */
 
-const validUFs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
+// const validUFs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
 
-function isValidUF(uf) {
-  return validUFs.includes(uf.toUpperCase());
+// function isValidUF(uf) {
+//   return validUFs.includes(uf.toUpperCase());
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Função para obter as UFs de terapeutas cadastrados e criar 
+function createSelectBoxFromAPI(apiUrl, selectElementId) {
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(jsonData => {
+      // console.log(jsonData);
+      const selectElement = document.getElementById(selectElementId);
+
+      // Clear existing options
+      selectElement.innerHTML = '';
+
+      selectElement.add(new Option('Selecione um estado', '', true));
+      // Create a new option for each item in the JSON data
+      jsonData.assistentes_terapeuticos.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.estado; 
+        option.text = item.estado; 
+        selectElement.add(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
 }
+
+const apiUrl = 'http://127.0.0.1:5000/assistentes_terapeuticos_ufs';
+createSelectBoxFromAPI(apiUrl, 'mySelectBox');
+
+
