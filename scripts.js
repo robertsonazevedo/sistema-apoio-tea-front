@@ -63,15 +63,6 @@ const getList = async () => {
 */
 const getListByEstado = async () => {
   const terapeuta_estado = document.getElementById('mySelectBox').value.toUpperCase();
-  
-  // if (isValidUF(terapeuta_estado))
-  //   // Checa se UF é válida
-  //   console.log('Estado válido');
-  // else {
-  //   alert('Estado inválido');
-  //   return;
-  // }
-
 
   let url = 'http://127.0.0.1:5000/assistentes_terapeuticos_estado?estado=' + terapeuta_estado;
   console.log(url)
@@ -87,14 +78,6 @@ const getListByEstado = async () => {
       console.error('Error:', error);
     });
 }
-
-  /*
-    --------------------------------------------------------------------------------------
-    Chamada da função para carregamento inicial dos dados
-    --------------------------------------------------------------------------------------
-  */
-
-  // getList()
   
   
   /*
@@ -239,6 +222,12 @@ const getListByEstado = async () => {
   }
 
 
+  /*
+    --------------------------------------------------------------------------------------
+    Função para inserir items na lista apresentada, com filtro por Estado
+    --------------------------------------------------------------------------------------
+  */
+
   const insertListByEstado = (nome, telefone, cep, rua, numero, complemento, bairro, cidade, estado) => {
     var terapeuta_estado = [nome, telefone, cep, rua, numero, complemento, bairro, cidade, estado]
     var table = document.getElementById('myTable');
@@ -264,7 +253,11 @@ const getListByEstado = async () => {
   }
 
 
-
+  /*
+    --------------------------------------------------------------------------------------
+    Função para permitir usar em uma single page Application, duas telas diferentes, acionado por botão
+    --------------------------------------------------------------------------------------
+  */
 
   const screen1 = document.getElementById('screen1');
   const screen2 = document.getElementById('screen2');
@@ -282,26 +275,9 @@ const getListByEstado = async () => {
   });
   
 
-
-    /*
-    --------------------------------------------------------------------------------------
-    Opção de função para limpar tabela Busca Terapeutas antes de carregar os valores da nova busca
-    --------------------------------------------------------------------------------------
-  */  
-  // function clearTable() {
-  //   const tableBody = document.querySelector('#myTable tbody');
-  //   // Limpar a tabela existente
-  //   tableBody.innerHTML = '';
-  // }
-
-
-
-
-
-
   /*
     --------------------------------------------------------------------------------------
-    Limpar a tabela ao selecionar uma nova UF no selectbox "mySelectBox".
+    Limpar a tabela ao selecionar uma nova UF no selectbox "mySelectBox" antes de carregar nova lista.
     --------------------------------------------------------------------------------------
   */
   const selectBoxUF = document.getElementById('mySelectBox');
@@ -315,41 +291,16 @@ const getListByEstado = async () => {
 
 });
 
-
-
-
-
-
   /*
     --------------------------------------------------------------------------------------
-    Função para checar se a UF é válida de com um Array
+    Função para obter as UFs de terapeutas cadastrados e criar o selectbox da página de pesquisa
     --------------------------------------------------------------------------------------
   */
 
-// const validUFs = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO'];
-
-// function isValidUF(uf) {
-//   return validUFs.includes(uf.toUpperCase());
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Função para obter as UFs de terapeutas cadastrados e criar 
 function createSelectBoxFromAPI(apiUrl, selectElementId) {
   fetch(apiUrl)
     .then(response => response.json())
     .then(jsonData => {
-      // console.log(jsonData);
       const selectElement = document.getElementById(selectElementId);
 
       // Clear existing options

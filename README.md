@@ -28,6 +28,15 @@ Endereço da API: https://github.com/robertsonazevedo/sistema-apoio-tea-api
 
 Para testar o sistema em seu navegador, você precisará baixar o repositório do Github do front do sistema-apoio-tea-front, no link: https://github.com/robertsonazevedo/sistema-apoio-tea-front
 
+
+### 📋 Melhorias Futuras
+
+- Permissão de pesquisa de terapeuta por cidade e bairro.
+- Cadastro para outros tipos de profissionais, como psicólogos e médicos.
+- Página de login com perfil para cada tipo de usuaário.
+- Permissão de agendamento online.
+- Pagamento online.
+
 ## 🛠️ Construído com
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Markup Language para desenvolver os elementos da página.

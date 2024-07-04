@@ -52,79 +52,6 @@ header {
     clear: both;
 }
 
-/* #newNome {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 25%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newTelefone {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 25%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newCep {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 8%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newRua {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 8%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newNumero {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 8%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newComplemento {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 8%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newBairro {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 8%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newCidade {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 8%;
-    padding: 10px;
-    font-size: 16px;
-}
-
-#newEstado {
-    margin: 0;
-    border: 1px solid rgb(35, 32, 24);
-    width: 5%;
-    padding: 10px;
-    font-size: 16px;
-} */
-
-
 .addBtn {
     padding: 9px 10px;
     background-color: rgb(35, 32, 24);
@@ -216,44 +143,6 @@ tr:hover {
 .hidden {
     display: none;
   }
-
-
-/* .busca-terapeuta {
-    margin: 0 auto;
-    border: 1px solid rgb(35, 32, 24);
-    width: 200px;
-    padding: 5px;
-    font-size: 8px;
-    color: #eee;
-    background-color: #0e6170;
-  } */
-
-/* #busca-por-estado {
-    margin: 0 auto;
-    border: 1px solid rgb(35, 32, 24);
-    width: 200px;
-    padding: 5px;
-    font-size: 12px;
-    color: #0c0b0b;
-}
-
-#busca-por-cidade {
-    margin: 0 auto;
-    border: 1px solid rgb(35, 32, 24);
-    width: 200px;
-    padding: 5px;
-    font-size: 12px;
-    color: #eee;
-}
-
-#busca-por-bairro {
-    margin: 0 auto;
-    border: 1px solid rgb(35, 32, 24);
-    width: 200px;
-    padding: 5px;
-    font-size: 12px;
-    color: #eee; */
-/* } */
 
 .ufSelectBox {
     font-size: 14px;
