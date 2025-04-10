@@ -20,13 +20,36 @@ O sistem prevê também, no futuro, incluir neuroatípicos em geral.
 
 Endereço da API: https://github.com/robertsonazevedo/sistema-apoio-tea-api
 
+### 📋 Arquitetura do Sistema
+
+<img src="diagramas/sistema-apoio-tea-cadastro-terapeuta.png" alt="Diagrama Cadastro Terapeuta" width="1000" height="400">
+
 ### 📋 Pré-requisitos
 
 - Possuir um navegador
+- Se for testar em docker, possuir docker istalado em sua máquina.
+- Em ambos casos, a API do projeto precisa estar rodando previamente, pois o front vai precisar consultar a API.
 
-## ⚙️ Executando os testes
+### ⚙️ Executando os testes
 
-Para testar o sistema em seu navegador, você precisará baixar o repositório do Github do front do sistema-apoio-tea-front, no link: https://github.com/robertsonazevedo/sistema-apoio-tea-front
+## Executando em Workstation: Para testar o sistema em seu navegador, diretamente em sua máquina, você precisará baixar o repositório do Github do front do sistema-apoio-tea-front, no link: https://github.com/robertsonazevedo/sistema-apoio-tea-front
+Em seguida, você precisará navegar no diretório baixado e abrir o arquivo index.html com seu navegador. Lembre-se, a API precisa estar rodando para que as funcionalidades sejam executadas corretamente.
+
+## Executando em Containeres Docker: Para testar o sistema em Docker, você precisará ter o docker instalado em sua máquina, navegar até a raiz do projeto e depois executar comando para buildar a imagem e por fim, executar o container. Os comandos são demonstrados abaixo:
+
+Buildando a Imagem do Container
+
+```
+docker build -t front-sistema-apoio-tea .
+```
+
+Executando o container:
+
+```
+docker run -d -p 8080:80 front-sistema-apoio-tea
+```
+
+Acesse o front no seu navegador com o endereço: http://localhost:8080
 
 
 ### 📋 Melhorias Futuras
@@ -41,7 +64,7 @@ Para testar o sistema em seu navegador, você precisará baixar o repositório d
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Markup Language para desenvolver os elementos da página.
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Usado para estilização do projeto.
-* [Javascript](https://devdocs.io/javascript/) - Linguragem de programação usada no Frontend.
+* [Javascript](https://devdocs.io/javascript/) - Linguagem de programação usada no Frontend.
 
 
 ## 📌 Versão
